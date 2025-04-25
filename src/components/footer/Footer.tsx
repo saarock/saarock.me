@@ -31,59 +31,61 @@ const Footer: React.FC = () => {
     tl.fromTo(
       titleRef.current,
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8 }
+      { y: 0, opacity: 1, duration: 0.8 },
     )
       // Animate contact section
       .fromTo(
         contactRef.current,
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.7 },
-        "-=0.5"
+        "-=0.5",
       )
       // Animate social section
       .fromTo(
         socialRef.current,
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.7 },
-        "-=0.4"
+        "-=0.4",
       )
       // Animate newsletter section
       .fromTo(
         newsletterRef.current,
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.7 },
-        "-=0.4"
+        "-=0.4",
       )
       // Animate copyright
       .fromTo(
         copyrightRef.current,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6 },
-        "-=0.3"
+        "-=0.3",
       )
       // Animate social icons
       .fromTo(
         socialRefs.current,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 },
-        "-=0.4"
+        "-=0.4",
       );
 
     // Hover animation for subscribe button
     if (subscribeButtonRef.current) {
-      gsap.to(subscribeButtonRef.current, {
-        scale: 1.1,
-        boxShadow: "0 0 40px rgba(16, 185, 129, 1)",
-        duration: 0.3,
-        paused: true,
-        ease: "power2.out",
-      }).reverse();
+      gsap
+        .to(subscribeButtonRef.current, {
+          scale: 1.1,
+          boxShadow: "0 0 40px rgba(16, 185, 129, 1)",
+          duration: 0.3,
+          paused: true,
+          ease: "power2.out",
+        })
+        .reverse();
 
       subscribeButtonRef.current.addEventListener("mouseenter", () =>
-        gsap.to(subscribeButtonRef.current, { scale: 1.1, duration: 0.3 })
+        gsap.to(subscribeButtonRef.current, { scale: 1.1, duration: 0.3 }),
       );
       subscribeButtonRef.current.addEventListener("mouseleave", () =>
-        gsap.to(subscribeButtonRef.current, { scale: 1, duration: 0.3 })
+        gsap.to(subscribeButtonRef.current, { scale: 1, duration: 0.3 }),
       );
     }
 
@@ -108,8 +110,18 @@ const Footer: React.FC = () => {
         <div className="sb-footer-grid">
           <div className="sb-footer-contact" ref={contactRef}>
             <h3 className="sb-footer-subtitle">Contact Info</h3>
-            <p>Email: <a href="mailto:you@example.com" className="sb-footer-link">saarock4646@gmail.com</a></p>
-            <p>Phone: <a href="tel:+1234567890" className="sb-footer-link">+977 9823464648</a></p>
+            <p>
+              Email:{" "}
+              <a href="mailto:you@example.com" className="sb-footer-link">
+                saarock4646@gmail.com
+              </a>
+            </p>
+            <p>
+              Phone:{" "}
+              <a href="tel:+1234567890" className="sb-footer-link">
+                +977 9823464648
+              </a>
+            </p>
             <p>Location: Kathmandu Ratopul, Nepal</p>
           </div>
           <div className="sb-footer-newsletter" ref={newsletterRef}>

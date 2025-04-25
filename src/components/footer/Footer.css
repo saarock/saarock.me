@@ -1,5 +1,5 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600;700&display=swap");
 
 /* Custom animations for CSS (complementing GSAP) */
 @keyframes sb-pulseGlow {
@@ -72,7 +72,7 @@
 }
 
 .sb-footer-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 3rem;
   font-weight: 700;
   color: #ffffff;
@@ -89,7 +89,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.7) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.7) 0%,
+    transparent 70%
+  );
   opacity: 0.3;
   animation: sb-pulseGlow 4s ease-in-out infinite;
 }
@@ -120,7 +124,7 @@
 }
 
 .sb-footer-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.75rem;
   font-weight: 600;
   color: #ffffff;
@@ -129,7 +133,7 @@
 }
 
 .sb-footer-contact p {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.25rem;
   color: #d1d5db;
   margin: 0.5rem 0;
@@ -176,19 +180,19 @@
 }
 
 .sb-footer-social-github {
-  background-image: url('https://api.iconify.design/mdi:github.svg?color=%23ffffff');
+  background-image: url("https://api.iconify.design/mdi:github.svg?color=%23ffffff");
 }
 
 .sb-footer-social-linkedin {
-  background-image: url('https://api.iconify.design/mdi:linkedin.svg?color=%23ffffff');
+  background-image: url("https://api.iconify.design/mdi:linkedin.svg?color=%23ffffff");
 }
 
 .sb-footer-social-twitter {
-  background-image: url('https://api.iconify.design/mdi:twitter.svg?color=%23ffffff');
+  background-image: url("https://api.iconify.design/mdi:twitter.svg?color=%23ffffff");
 }
 
 .sb-footer-social-instagram {
-  background-image: url('https://api.iconify.design/mdi:instagram.svg?color=%23ffffff');
+  background-image: url("https://api.iconify.design/mdi:instagram.svg?color=%23ffffff");
 }
 
 .sb-footer-newsletter-form {
@@ -206,7 +210,7 @@
 }
 
 .sb-footer-newsletter-input {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.25rem;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -222,7 +226,7 @@
 }
 
 .sb-footer-newsletter-button {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.25rem;
   text-align: center;
   background: linear-gradient(90deg, #10b981, #3b82f6);
@@ -259,7 +263,7 @@
 }
 
 .sb-footer-copyright {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   color: #d1d5db;
   margin-top: 2rem;

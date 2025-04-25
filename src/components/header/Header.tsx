@@ -22,8 +22,7 @@ const Header: React.FC = () => {
   const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const navLinkRefs: NavLinkRef = useRef([]);
-  const {width} = useTopLoader();
-
+  const { width } = useTopLoader();
 
   useEffect(() => {
     // Handle scroll for header background
@@ -39,21 +38,21 @@ const Header: React.FC = () => {
     tl.fromTo(
       logoRef.current,
       { y: -50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8 }
+      { y: 0, opacity: 1, duration: 0.8 },
     )
       // Animate desktop menu items
       .fromTo(
         navLinkRefs.current,
         { y: -30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6, stagger: 0.1 },
-        "-=0.5"
+        "-=0.5",
       )
       // Animate mobile toggle
       .fromTo(
         mobileToggleRef.current,
         { x: 30, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.6 },
-        "-=0.4"
+        "-=0.4",
       );
 
     // Mobile menu animation
@@ -61,7 +60,7 @@ const Header: React.FC = () => {
       gsap.fromTo(
         mobileMenuRef.current.querySelectorAll(".sb-mobile-nav-link"),
         { x: 100, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, stagger: 0.1 }
+        { x: 0, opacity: 1, duration: 0.5, stagger: 0.1 },
       );
     }
 
@@ -80,14 +79,21 @@ const Header: React.FC = () => {
     { name: "Contact", href: "/contact" },
   ];
 
-
-
   return (
     <header
       className={`sb-header ${isScrolled ? "sb-header-scrolled" : ""}`}
       ref={headerRef}
     >
-      <div className="sb-top-loader" style={{width: `${width}px`, backgroundColor: "red", height: "1rem", transition: "ease-in-out", transitionDelay: "9s"}}></div>
+      <div
+        className="sb-top-loader"
+        style={{
+          width: `${width}px`,
+          backgroundColor: "red",
+          height: "1rem",
+          transition: "ease-in-out",
+          transitionDelay: "9s",
+        }}
+      ></div>
       <div className="sb-header-overlay"></div>
       <nav className="sb-nav-container">
         <div className="sb-nav-content">
@@ -102,10 +108,10 @@ const Header: React.FC = () => {
               <NavLink
                 key={item.name}
                 to={item.href}
-                className={({ isActive }: {isActive: Boolean}) =>
+                className={({ isActive }: { isActive: Boolean }) =>
                   `sb-nav-link ${isActive ? "sb-nav-link-active" : ""}`
                 }
-                ref={(el:HTMLAnchorElement ) => {
+                ref={(el: HTMLAnchorElement) => {
                   if (el) {
                     navLinkRefs.current[index] = el;
                   }
@@ -142,7 +148,7 @@ const Header: React.FC = () => {
               <NavLink
                 key={item.name}
                 to={item.href}
-                className={({ isActive }: {isActive: Boolean}) =>
+                className={({ isActive }: { isActive: Boolean }) =>
                   `sb-mobile-nav-link ${isActive ? "sb-mobile-nav-link-active" : ""}`
                 }
                 onClick={() => setIsOpen(false)}

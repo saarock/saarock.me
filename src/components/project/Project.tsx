@@ -28,22 +28,26 @@ const Project: React.FC = () => {
     {
       id: 1,
       title: "Cosmic Portfolio",
-      description: "A personal portfolio website with a cosmic theme and animations.",
+      description:
+        "A personal portfolio website with a cosmic theme and animations.",
       techStack: ["React", "TypeScript", "GSAP", "CSS"],
       image: "https://via.placeholder.com/600x400.png?text=Project+1",
       github: "https://github.com",
       liveDemo: "https://example.com",
-      details: "This portfolio showcases my skills in building responsive, animated websites using modern web technologies. Features include GSAP animations, glassmorphism, and a cosmic gradient theme.",
+      details:
+        "This portfolio showcases my skills in building responsive, animated websites using modern web technologies. Features include GSAP animations, glassmorphism, and a cosmic gradient theme.",
     },
     {
       id: 2,
       title: "Inventory App",
-      description: "A full-stack inventory management system with real-time updates.",
+      description:
+        "A full-stack inventory management system with real-time updates.",
       techStack: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       image: "https://via.placeholder.com/600x400.png?text=Project+2",
       github: "https://github.com",
       liveDemo: "https://example.com",
-      details: "This app allows businesses to manage stock, track inventory, and integrate barcodes. Built with a REST API, it ensures real-time data syncing and a responsive UI.",
+      details:
+        "This app allows businesses to manage stock, track inventory, and integrate barcodes. Built with a REST API, it ensures real-time data syncing and a responsive UI.",
     },
     {
       id: 3,
@@ -53,7 +57,8 @@ const Project: React.FC = () => {
       image: "https://via.placeholder.com/600x400.png?text=Project+3",
       github: "https://github.com",
       liveDemo: "https://example.com",
-      details: "The chatbot leverages NLP to handle customer queries efficiently. The frontend is built with React, and the backend uses Express with TensorFlow for AI processing.",
+      details:
+        "The chatbot leverages NLP to handle customer queries efficiently. The frontend is built with React, and the backend uses Express with TensorFlow for AI processing.",
     },
   ];
 
@@ -72,14 +77,14 @@ const Project: React.FC = () => {
     tl.fromTo(
       titleRef.current,
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8 }
+      { y: 0, opacity: 1, duration: 0.8 },
     )
       // Animate project cards
       .fromTo(
         projectRefs.current,
         { y: 60, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.7, stagger: 0.2 },
-        "-=0.5"
+        "-=0.5",
       );
 
     // Modal animation
@@ -87,7 +92,7 @@ const Project: React.FC = () => {
       gsap.fromTo(
         ".sb-projects-modal",
         { scale: 0.8, opacity: 0, y: 100 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }
+        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" },
       );
     }
 
@@ -138,7 +143,9 @@ const Project: React.FC = () => {
               />
               <div className="sb-projects-card-content">
                 <h3 className="sb-projects-card-title">{project.title}</h3>
-                <p className="sb-projects-card-description">{project.description}</p>
+                <p className="sb-projects-card-description">
+                  {project.description}
+                </p>
                 <div className="sb-projects-card-tech">
                   {project.techStack.map((tech, i) => (
                     <span key={i} className="sb-projects-card-tech-item">
@@ -179,7 +186,10 @@ const Project: React.FC = () => {
         </div>
         {selectedProject && (
           <div className="sb-projects-modal-overlay" onClick={closeModal}>
-            <div className="sb-projects-modal" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="sb-projects-modal"
+              onClick={(e) => e.stopPropagation()}
+            >
               <button className="sb-projects-modal-close" onClick={closeModal}>
                 ×
               </button>
@@ -188,8 +198,12 @@ const Project: React.FC = () => {
                 alt={selectedProject.title}
                 className="sb-projects-modal-image"
               />
-              <h3 className="sb-projects-modal-title">{selectedProject.title}</h3>
-              <p className="sb-projects-modal-description">{selectedProject.description}</p>
+              <h3 className="sb-projects-modal-title">
+                {selectedProject.title}
+              </h3>
+              <p className="sb-projects-modal-description">
+                {selectedProject.description}
+              </p>
               <div className="sb-projects-modal-tech">
                 <strong>Tech Stack:</strong>
                 {selectedProject.techStack.map((tech, i) => (
@@ -198,7 +212,9 @@ const Project: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <p className="sb-projects-modal-details">{selectedProject.details}</p>
+              <p className="sb-projects-modal-details">
+                {selectedProject.details}
+              </p>
               <div className="sb-projects-modal-actions">
                 <a
                   href={selectedProject.github}

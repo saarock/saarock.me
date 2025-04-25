@@ -1,12 +1,11 @@
-
-import Project from '../../components/project/Project'
+import Project from "../../components/project/Project";
 
 const Projects = () => {
   return (
     <>
-    <Project />
+      <Project />
     </>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
