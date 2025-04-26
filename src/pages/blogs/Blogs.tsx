@@ -55,7 +55,7 @@ const BlogCard: React.FC<{ blog: Blog; onReadMore: (id: string) => void }> = ({
       </div>
       <div className="blog-meta">
         <span className="created-at">
-          Created At: {new Date(blog.$createdAt).toLocaleString()}
+        Created At: {new Date(blog.$createdAt).toLocaleString().split(",")[0]}
         </span>
       </div>
     </li>
@@ -95,7 +95,7 @@ const BlogModal: React.FC<{ blog: Blog; onClose: () => void }> = ({
         <p dangerouslySetInnerHTML={{ __html: blog.content }} />
         <div className="blog-meta">
           <span className="created-at">
-            Created At: {new Date(blog.$createdAt).toLocaleString()}
+            Created At: {new Date(blog.$createdAt).toLocaleString().split(",")[0]}
           </span>
         </div>
       </div>
