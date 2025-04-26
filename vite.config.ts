@@ -1,11 +1,13 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { VitePWA } from 'vite-plugin-pwa';
-// https://vite.dev/config/
+// vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+
 export default defineConfig({
-  plugins: [react(), 
+  plugins: [
+    react(),
     VitePWA({
-      registerType: 'autoUpdate',  // Automatically update the service worker
+      registerType: 'autoUpdate',
       manifest: {
         name: 'Saarock - Personal Blog & Projects',
         short_name: 'Saarock',
@@ -28,7 +30,5 @@ export default defineConfig({
         ]
       }
     })
-  
-
-  ],
-});
+  ]
+})

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./Hero.css";
 
@@ -17,6 +17,7 @@ const Hero: React.FC = () => {
   const bgRef = useRef<HTMLDivElement>(null);
   const socialRefs: SocialRef = useRef([]);
   const particlesRef = useRef<HTMLDivElement>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
 
   useEffect(() => {
     // GSAP Timeline for staggered animations
@@ -155,6 +156,24 @@ const Hero: React.FC = () => {
     };
   }, []);
 
+
+    // Listen for the beforeinstallprompt event
+    useEffect(() => {
+      const handleBeforeInstallPrompt = (e: any) => {
+        e.preventDefault();
+        setDeferredPrompt(e);
+      };
+    
+      window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    
+      return () => {
+        window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      };
+    }, []);
+  
+    
+  
+
   // Split title into letters
   const titleText = "Welcome to My Universe";
   const titleLetters = titleText.split("").map((char, index) => (
@@ -162,6 +181,28 @@ const Hero: React.FC = () => {
       {char === " " ? "\u00A0" : char}
     </span>
   ));
+
+
+  const handleInstallClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+  
+    if (!deferredPrompt) {
+      console.log('Install prompt not available yet');
+      return;
+    }
+  
+    deferredPrompt.prompt();
+  
+    const choiceResult = await deferredPrompt.userChoice;
+    if (choiceResult.outcome === 'accepted') {
+      console.log('User accepted the install prompt');
+    } else {
+      console.log('User dismissed the install prompt');
+    }
+  
+    setDeferredPrompt(null); // reset after prompting
+  };
+  
 
   return (
     <section className="sb-hero" ref={heroRef}>
@@ -186,8 +227,9 @@ const Hero: React.FC = () => {
             href="#projects"
             className="sb-hero-cta sb-hero-cta-primary"
             ref={ctaPrimaryRef}
+            onClick={handleInstallClick}
           >
-            Explore My Work
+            Download App
             <span className="sb-hero-cta-ripple"></span>
           </a>
           <a
