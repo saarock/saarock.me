@@ -1,0 +1,90 @@
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 0;
+    background: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .pagination-button {
+    background: #e94560;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .pagination-button:hover:not(:disabled) {
+    background: #c5304b;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.7);
+  }
+  
+  .pagination-button:disabled {
+    background: #4b4b5e;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.6;
+  }
+  
+  .pagination-info {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #00ddeb;
+    text-shadow: 0 0 5px rgba(0, 221, 235, 0.5);
+    padding: 10px 20px;
+    background: #0f0f1a;
+    border-radius: 8px;
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+  
+  /* Animations */
+  @keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 5px rgba(0, 221, 235, 0.5); }
+    50% { text-shadow: 0 0 10px rgba(0, 221, 235, 0.8); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .pagination-container {
+      gap: 12px;
+      padding: 16px 0;
+    }
+  
+    .pagination-button {
+      padding: 10px 20px;
+      font-size: 0.95rem;
+    }
+  
+    .pagination-info {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .pagination-container {
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+  
+    .pagination-button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  
+    .pagination-info {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+    }
+  }
