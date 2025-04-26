@@ -239,7 +239,7 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
               >
                 <span
-                  className={`sb-hero-social-icon sb-hero-social-${platform}`}
+                  className={`sb-hero-social-icon sb-hero-social-${platform.name}`}
                 ></span>
               </a>
             ),
