@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Lora:wght@500&family=Open+Sans:wght@400&family=Fira+Code:wght@400&display=swap');
+
 .blog-container {
   position: relative;
   padding: 2rem 2rem;
@@ -7,13 +9,14 @@
 }
 
 .blogs-title {
+  font-family: 'Merriweather', Georgia, serif;
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
   color: #ffffff;
   margin-bottom: 40px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.01em;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
@@ -87,14 +90,16 @@
   justify-content: center;
   background: #2a3b5a;
   color: #00ddeb;
+  font-family: 'Lora', Georgia, serif;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
 .blog-item h2 {
+  font-family: 'Merriweather', Georgia, serif;
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
   margin: 12px 16px 6px;
   line-height: 1.4;
@@ -106,6 +111,7 @@
 }
 
 .blog-author {
+  font-family: 'Lora', Georgia, serif;
   font-size: 0.9rem;
   font-weight: 500;
   color: #00ddeb;
@@ -115,10 +121,11 @@
 }
 
 .blog-item p {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 0.95rem;
   color: #b0b0c0;
   margin: 8px 16px;
-  line-height: 1.6;
+  line-height: 1.9;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -136,8 +143,9 @@
   color: #ffffff;
   padding: 8px 16px;
   border-radius: 8px;
+  font-family: 'Lora', Georgia, serif;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 8px rgba(255, 77, 109, 0.4);
@@ -153,6 +161,7 @@
   display: flex;
   justify-content: space-between;
   margin: 8px 16px 16px;
+  font-family: 'Lora', Georgia, serif;
   font-size: 0.85rem;
   color: #6b7280;
 }
@@ -168,8 +177,9 @@
 .loading-message,
 .error-message,
 .no-blogs-message {
+  font-family: 'Merriweather', Georgia, serif;
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   margin-top: 80px;
   color: #b0b0c0;
@@ -271,7 +281,7 @@
   }
 }
 
-/* New CSS for BlogModal */
+/* Blog Modal */
 .blog-modal-overlay {
   position: fixed;
   top: 0;
@@ -286,8 +296,6 @@
   z-index: 1000;
   animation: fadeInOverlay 0.3s ease-in-out;
 }
-
-
 
 .blog-modal {
   background: #1e2a44;
@@ -336,8 +344,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Lora', Georgia, serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 8px rgba(255, 77, 109, 0.4);
@@ -350,6 +359,7 @@
 }
 
 .blog-modal h2 {
+  font-family: 'Merriweather', Georgia, serif;
   font-size: 1.8rem;
   font-weight: 700;
   color: #ffffff;
@@ -358,6 +368,7 @@
 }
 
 .blog-modal .blog-author {
+  font-family: 'Lora', Georgia, serif;
   font-size: 1rem;
   font-weight: 500;
   color: #00ddeb;
@@ -367,13 +378,15 @@
 }
 
 .blog-modal p {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1.1rem;
   color: #b0b0c0;
-  line-height: 1.8;
+  line-height: 1.9;
   margin-bottom: 20px;
 }
 
 .blog-modal .blog-meta {
+  font-family: 'Lora', Georgia, serif;
   font-size: 0.9rem;
   color: #6b7280;
   margin-top: 16px;
@@ -462,15 +475,13 @@
 }
 
 /* Base Styles for Strong, Lists, and Other Tags */
-
-/* Strong Text */
 strong {
+  font-family: 'Merriweather', Georgia, serif;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
 }
 
-/* Lists (ul, ol, and li) */
 ul, ol {
   padding-left: 20px;
   margin: 0;
@@ -486,10 +497,11 @@ ol {
 }
 
 li {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1rem;
   color: #b0b0c0;
   margin-bottom: 8px;
-  line-height: 1.6;
+  line-height: 1.9;
   transition: color 0.3s ease;
 }
 
@@ -497,7 +509,6 @@ li:hover {
   color: #00ddeb;
 }
 
-/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -506,6 +517,7 @@ table {
 }
 
 th, td {
+  font-family: 'Open Sans', Arial, sans-serif;
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #444;
@@ -514,7 +526,8 @@ th, td {
 
 th {
   background-color: #1e2a44;
-  font-weight: 600;
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 700;
   color: #ffffff;
 }
 
@@ -527,37 +540,37 @@ table tr:hover {
 }
 
 table caption {
+  font-family: 'Merriweather', Georgia, serif;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
   margin-bottom: 10px;
 }
 
-/* Blockquotes */
 blockquote {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1.2rem;
   font-style: italic;
   color: #b0b0c0;
   border-left: 4px solid #ff7f50;
   padding-left: 16px;
   margin: 16px 0;
-  line-height: 1.6;
+  line-height: 1.9;
 }
 
-/* Code Blocks */
 code {
   background-color: #1e2a44;
   color: #00ddeb;
-  font-family: 'Courier New', monospace;
+  font-family: 'Fira Code', 'Courier New', monospace;
   padding: 4px 8px;
   border-radius: 4px;
 }
 
-/* Links */
 a {
+  font-family: 'Lora', Georgia, serif;
   color: #00ddeb;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
@@ -566,8 +579,8 @@ a:hover {
   text-shadow: 0 0 5px rgba(255, 77, 109, 0.4);
 }
 
-/* Forms */
 input[type="text"], input[type="email"], input[type="password"], textarea {
+  font-family: 'Open Sans', Arial, sans-serif;
   background-color: #2a3b5a;
   color: #ffffff;
   border: 1px solid #4b5c7a;
@@ -584,13 +597,13 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   outline: none;
 }
 
-/* Buttons */
 button {
+  font-family: 'Lora', Georgia, serif;
   background-color: #ff7f50;
   color: #ffffff;
   padding: 12px 24px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -607,8 +620,8 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Headings (h1, h2, h3, etc.) */
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', Georgia, serif;
   color: #ffffff;
   margin-bottom: 16px;
   text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
@@ -626,46 +639,46 @@ h2 {
 
 h3 {
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h4 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h5 {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h6 {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
-/* Horizontal Rule (hr) */
 hr {
   border: 1px solid #4b5c7a;
   margin: 16px 0;
 }
 
-/* Paragraphs */
 p {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1rem;
   color: #b0b0c0;
-  line-height: 1.8;
+  line-height: 1.9;
   margin-bottom: 20px;
 }
 
 p a {
+  font-family: 'Lora', Georgia, serif;
   color: #00ddeb;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  table th, table td {
+  th, td {
     font-size: 0.9rem;
     padding: 10px;
   }
@@ -716,4 +729,3 @@ p a {
     font-size: 0.9rem;
   }
 }
-

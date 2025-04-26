@@ -8,6 +8,7 @@ import Projects from "./pages/project/Projects.tsx";
 import About from "./pages/about/About.tsx";
 import Blogs from "./pages/blogs/Blogs.tsx";
 import Contact from "./pages/contact/Contact.tsx";
+import NotFoundPage from "./pages/NotFoundPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "*",
+        element: <NotFoundPage />
+      }
     ],
   },
 ]);
