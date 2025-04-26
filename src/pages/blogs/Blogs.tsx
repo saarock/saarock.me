@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import useBlogs from "../../hooks/useBlogs";
 import Pagination from "../../components/pagination/Pagination";
@@ -11,6 +11,7 @@ interface Blog {
   $collectionId: string;
   $createdAt: string;
   title: string;
+  childContent: string,
   content: string;
   imageUrl?: string;
   author: string;
@@ -30,14 +31,17 @@ const BlogCard: React.FC<{ blog: Blog; onReadMore: (id: string) => void }> = ({
           <div className="default-image">No Image</div>
         )}
       </div>
-      <h2 dangerouslySetInnerHTML={{ __html: blog.title }} />
+      <h2>
+        {
+          blog.title
+        }
+      </h2>
       <div className="blog-author">By {blog.author}</div>
       <p dangerouslySetInnerHTML={{
         __html:
-
-          blog.content.length > 100
-            ? `${blog.content.trim().substring(0, 100)}...`
-            : blog.content
+          blog.childContent?.length > 100
+            ? `${blog.childContent?.trim().substring(0, 100)}...`
+            : blog?.childContent
       }} />
 
 
@@ -81,7 +85,7 @@ const BlogModal: React.FC<{ blog: Blog; onClose: () => void }> = ({
   onClose,
 }) => {
   return (
-    <div className="blog-modal-overlay">
+    <div className="blog-modal-overlay" onClick={onClose}>
       <div className="blog-modal">
         <button className="close-button" onClick={onClose}>
           X
@@ -121,6 +125,9 @@ const Blogs: React.FC = () => {
 
   // Handle opening the blog modal
   const handleReadMore = (blogId: string) => {
+    window.scrollTo(0,0)
+    document.body.style.overflow = "hidden";
+  
     const blog = blogs.find((blog: Blog) => blog.$id === blogId);
     if (blog) {
       setSelectedBlog(blog);
@@ -129,6 +136,8 @@ const Blogs: React.FC = () => {
 
   // Handle closing the blog modal
   const handleCloseModal = () => {
+    document.body.style.overflow = "auto";
+
     setSelectedBlog(null);
   };
 
