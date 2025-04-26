@@ -209,11 +209,28 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="sb-hero-socials">
-          {["github", "linkedin", "twitter", "instagram"].map(
+          {[
+            {
+              name: "github",
+              path: "saarock"
+            },
+            {
+              name: "linkedin",
+              path: "in/aayush-basnet-885ab9267"
+            },
+            {
+              name: "twitter",
+              path: "saarock4646",
+            },
+            {
+              name: "instagram",
+              path: "saarock_basnet"
+            }
+          ].map(
             (platform, index) => (
               <a
-                key={platform}
-                href={`https://${platform}.com`}
+                key={platform.name}
+                href={`https://${platform.name}.com/${platform.path}`}
                 className="sb-hero-social"
                 ref={(el) => {
                   if (el) socialRefs.current[index] = el;
