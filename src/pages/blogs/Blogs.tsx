@@ -86,7 +86,7 @@ const BlogModal: React.FC<{ blog: Blog; onClose: () => void }> = ({
 }) => {
   return (
     <div className="blog-modal-overlay" onClick={onClose}>
-      <div className="blog-modal">
+      <div className="blog-modal" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={onClose}>
           X
         </button>
