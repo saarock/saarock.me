@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 import useBlogs from "../../hooks/useBlogs";
 import Pagination from "../../components/pagination/Pagination";
 import "./Blogs.css";
 import Loader from "../../components/loader/Loader";
 import { Blog } from "../../interfaces/blogs";
-import ReadBlog from "./readBlog/ReadBlog";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 
 

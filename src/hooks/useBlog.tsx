@@ -9,7 +9,7 @@ const useBlog = (blogId: string) => {
 
 
     const blogs = useSelector((state: any) => state.blog) as Blog[];
-    const { loading} = useBlogs();
+     useBlogs();
     const [loading2, setLoading2 ] = useState(false)
 
 
