@@ -5,6 +5,8 @@ import Pagination from "../../components/pagination/Pagination";
 import "./Blogs.css";
 import Loader from "../../components/loader/Loader";
 import { Blog } from "../../interfaces/blogs";
+import ReadBlog from "./readBlog/ReadBlog";
+import { useLocation, useNavigate } from "react-router";
 
 
 
@@ -46,7 +48,7 @@ const BlogCard: React.FC<{ blog: Blog; onReadMore: (id: string) => void }> = ({
       </div>
       <div className="blog-meta">
         <span className="created-at">
-        Created At: {new Date(blog.createdAt).toLocaleString().split(",")[0]}
+          Created At: {new Date(blog.createdAt).toLocaleString().split(",")[0]}
         </span>
       </div>
     </li>
@@ -70,34 +72,14 @@ const NoBlogsMessage: React.FC = () => (
   </div>
 );
 
-// Sub-component for the full content modal
-const BlogModal: React.FC<{ blog: Blog; onClose: () => void }> = ({
-  blog,
-  onClose,
-}) => {
-  return (
-    <div className="blog-modal-overlay" onClick={onClose}>
-      <div className="blog-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="close-button" onClick={onClose}>
-          X
-        </button>
-        <h2 dangerouslySetInnerHTML={{ __html: blog.title }} />
-        <div className="blog-author">By {blog.author}</div>
-        <p dangerouslySetInnerHTML={{ __html: blog.content }} />
-        <div className="blog-meta">
-          <span className="created-at">
-            Created At: {new Date(blog.createdAt).toLocaleString().split(",")[0]}
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-};
+
 
 const Blogs: React.FC = () => {
   const { blogs, loading, error, setCurrentPage, totalPages, currentPage } =
     useBlogs();
-  const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+  const navigate = useNavigate();
+
+
 
   // Handle error state
   if (error) {
@@ -116,21 +98,14 @@ const Blogs: React.FC = () => {
 
   // Handle opening the blog modal
   const handleReadMore = (blogId: string) => {
-    window.scrollTo(0,0)
-    document.body.style.overflow = "hidden";
-  
-    const blog = blogs.find((blog: Blog) => blog.$id === blogId);
-    if (blog) {
-      setSelectedBlog(blog);
+    if (!blogId) {
+      alert("No blog found.")
     }
+    navigate(blogId);
+
   };
 
-  // Handle closing the blog modal
-  const handleCloseModal = () => {
-    document.body.style.overflow = "auto";
 
-    setSelectedBlog(null);
-  };
 
   return (
     <div className="blog-container">
@@ -145,11 +120,6 @@ const Blogs: React.FC = () => {
         totalPages={totalPages}
         currentPage={currentPage}
       />
-
-      {/* Show the blog modal if a blog is selected */}
-      {selectedBlog && (
-        <BlogModal blog={selectedBlog} onClose={handleCloseModal} />
-      )}
     </div>
   );
 };

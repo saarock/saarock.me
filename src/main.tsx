@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout.tsx";
 import Home from "./pages/home/Home.tsx";
 import Projects from "./pages/project/Projects.tsx";
@@ -11,6 +11,7 @@ import Contact from "./pages/contact/Contact.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
+import ReadBlog from "./pages/blogs/readBlog/ReadBlog.tsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFoundPage />
+      },
+      {
+        path: "/blogs/:blogId",
+        element: <ReadBlog />
       }
     ],
   },
