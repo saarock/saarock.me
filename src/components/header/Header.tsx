@@ -1,12 +1,14 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, JSX } from "react";
 import { gsap } from "gsap";
 import { NavLink } from "react-router";
+import { FaHome, FaInfoCircle, FaProjectDiagram, FaBlog, FaPhoneAlt } from "react-icons/fa"; // Import the icons
 import "./Header.css";
 import useTopLoader from "../../hooks/useTopLoader";
 
 interface NavItem {
   name: string;
   href: string;
+  icon: JSX.Element;  // Add icon field
 }
 
 interface NavLinkRef {
@@ -72,11 +74,11 @@ const Header: React.FC = () => {
   }, [isOpen]);
 
   const navItems: NavItem[] = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Blogs", href: "/blogs" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "/", icon: <FaHome /> },
+    { name: "About", href: "/about", icon: <FaInfoCircle /> },
+    { name: "Projects", href: "/projects", icon: <FaProjectDiagram /> },
+    { name: "Blogs", href: "/blogs", icon: <FaBlog /> },
+    { name: "Contact", href: "/contact", icon: <FaPhoneAlt /> },
   ];
 
   return (
@@ -117,25 +119,12 @@ const Header: React.FC = () => {
                   }
                 }}
               >
+                <span className="sb-nav-link-icon">{item.icon}</span>
                 <span className="sb-nav-link-text">{item.name}</span>
                 <div className="sb-nav-link-underline"></div>
               </NavLink>
             ))}
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="sb-mobile-toggle"
-            aria-label="Toggle menu"
-            ref={mobileToggleRef}
-          >
-            <div className={`sb-hamburger ${isOpen ? "sb-open" : ""}`}>
-              <div className="sb-hamburger-line"></div>
-              <div className="sb-hamburger-line"></div>
-              <div className="sb-hamburger-line"></div>
-            </div>
-          </button>
         </div>
 
         {/* Mobile Menu */}
@@ -153,6 +142,7 @@ const Header: React.FC = () => {
                 }
                 onClick={() => setIsOpen(false)}
               >
+                <span className="sb-mobile-nav-link-icon">{item.icon}</span>
                 {item.name}
               </NavLink>
             ))}
