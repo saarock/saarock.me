@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
           <span className="sb-hero-title-glow"></span>
         </h1>
         <p className="sb-hero-subtitle" ref={subtitleRef}>
-          I'm a <span className="sb-hero-typed" ref={typedRef}></span>
+          I'm a <span className="sb-hero-typed" ref={typedRef}>Software Engineer.</span>
         </p>
         <div className="sb-hero-cta-container">
           <a
