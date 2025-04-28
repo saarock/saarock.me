@@ -4,18 +4,9 @@ import useBlogs from "../../hooks/useBlogs";
 import Pagination from "../../components/pagination/Pagination";
 import "./Blogs.css";
 import Loader from "../../components/loader/Loader";
+import { Blog } from "../../interfaces/blogs";
 
-// Define blog interface for type safety
-interface Blog {
-  $id: string;
-  $collectionId: string;
-  createdAt: string;
-  title: string;
-  childContent: string,
-  content: string;
-  imageUrl?: string;
-  author: string;
-}
+
 
 // Sub-component for individual blog card
 const BlogCard: React.FC<{ blog: Blog; onReadMore: (id: string) => void }> = ({

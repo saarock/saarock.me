@@ -9,6 +9,8 @@ import About from "./pages/about/About.tsx";
 import Blogs from "./pages/blogs/Blogs.tsx";
 import Contact from "./pages/contact/Contact.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
+import { Provider } from "react-redux";
+import { store } from "./store/store.ts";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,8 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 );

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import appWriteService from "../services/appwriteService";
+import { useDispatch } from "react-redux";
+import { addBlogs } from "../features/blogsFeature";
+
 
 
 const useBlogs = () => {
@@ -11,6 +14,8 @@ const useBlogs = () => {
     const [totalBlogs, setTotalBlogs] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
+    const dispatch = useDispatch();
+
     useEffect(() => {
         async function getBlogs() {
             try {
@@ -28,6 +33,8 @@ const useBlogs = () => {
 
                 console.log("Blogs: ", data);
                 setBlogs(data.documents as any);
+                dispatch(addBlogs(data.documents as any));
+
 
             } catch (error) {
                 setError("Error getting blogs: " + error);
