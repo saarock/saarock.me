@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { NavLink } from "react-router";
 import { FaHome, FaInfoCircle, FaProjectDiagram, FaBlog, FaPhoneAlt } from "react-icons/fa"; // Import the icons
 import "./Header.css";
-import useTopLoader from "../../hooks/useTopLoader";
+
 
 interface NavItem {
   name: string;
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const navLinkRefs: NavLinkRef = useRef([]);
-  const { width } = useTopLoader();
+
 
   useEffect(() => {
     // Handle scroll for header background
@@ -86,16 +86,6 @@ const Header: React.FC = () => {
       className={`sb-header ${isScrolled ? "sb-header-scrolled" : ""}`}
       ref={headerRef}
     >
-      <div
-        className="sb-top-loader"
-        style={{
-          width: `${width}px`,
-          backgroundColor: "red",
-          height: "1rem",
-          transition: "ease-in-out",
-          transitionDelay: "9s",
-        }}
-      ></div>
       <div className="sb-header-overlay"></div>
       <nav className="sb-nav-container">
         <div className="sb-nav-content">
@@ -142,8 +132,11 @@ const Header: React.FC = () => {
                 }
                 onClick={() => setIsOpen(false)}
               >
-                <span className="sb-mobile-nav-link-icon">{item.icon}</span>
-                {item.name}
+        
+               <div className="sb-mobile-nav-details">
+               <span className="sb-mobile-nav-link-icon">{item.icon}</span>
+               {item.name}
+               </div>
               </NavLink>
             ))}
           </div>

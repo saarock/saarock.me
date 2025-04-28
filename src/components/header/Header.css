@@ -124,26 +124,35 @@ mobile menus css start
   width: 100%;
   background: rgba(17, 24, 39, 0.981);
   left: 0;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding: 1.5rem;
 }
 .sb-mobile-menu-content {
   display: flex;
   justify-content: center;
-  padding: 1rem;
   font-size: 0.8rem;
   text-align: center;
+  gap: 0.6rem;
 
 
+}
+.sb-mobile-nav-details {
+  display: flex;
+  flex-direction: column;
 }
 .sb-mobile-nav-link {
   padding: 0.4rem;
   border-radius: 1rem;
+  font-size: 1rem;
 }
 .sb-mobile-menu-content .sb-mobile-nav-link-active {
-  /* background: rgba(17, 55, 137, 0.7); */
   color: rgb(149, 149, 222);
 }
 
 /* Mobile menu css end */
+
+
   .sb-desktop-menu {
     display: none;
   }
