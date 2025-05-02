@@ -109,7 +109,7 @@ const Header: React.FC = () => {
                   }
                 }}
               >
-                <span className="sb-nav-link-icon">{item.icon}</span>
+                {/* <span className="sb-nav-link-icon">{item.icon}</span> */}
                 <span className="sb-nav-link-text">{item.name}</span>
                 <div className="sb-nav-link-underline"></div>
               </NavLink>
