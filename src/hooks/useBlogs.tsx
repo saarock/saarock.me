@@ -31,7 +31,7 @@ const useBlogs = () => {
                     setError("No blogs Found");
                 }
 
-                console.log("Blogs: ", data);
+        
                 setBlogs(data.documents as any);
                 dispatch(addBlogs(data.documents as any));
 

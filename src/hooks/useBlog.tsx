@@ -21,7 +21,7 @@ const useBlog = (blogId: string) => {
         ; (() => {
             setLoading2(true);
             if (blogs && blogs.length > 0) {
-                console.log(blogs)
+         
                 const blog = blogs.find(blog => blog.$id === blogId);
                 if (blog) {
                     setBlog(blog);

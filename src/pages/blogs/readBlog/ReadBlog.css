@@ -22,7 +22,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 900px;
     box-sizing: border-box;
     margin: 2rem;
   }
@@ -30,7 +29,7 @@
   .blog-image {
     display: flex;
     justify-content: center;
-    width: 100%;
+
   }
   
   .blog-modal:hover::before {
@@ -41,8 +40,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 75%;
     margin-top: 2rem;
+    word-break: break-all;
+    word-wrap: break-word;
   }
   
   /* Blog Title */
@@ -446,3 +447,5 @@
       padding: 10px 20px;
     }
   }
+
+  
