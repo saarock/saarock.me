@@ -1,52 +1,13 @@
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600;700&display=swap");
-
-/* Custom animations for CSS (complementing GSAP) */
-@keyframes sb-pulseGlow {
-  0% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.25);
-  }
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-}
-
-@keyframes sb-ripple {
-  0% {
-    transform: scale(0);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(3.5);
-    opacity: 0;
-  }
-}
-
-@keyframes sb-gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Projects section styles */
 .sb-projects {
   position: relative;
-  padding: 2rem 2rem;
-  background-color: #111827;
-  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c1c 0%, #1a0e2e 50%, #16213e 100%);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
 }
 
 .sb-projects-overlay {
@@ -55,315 +16,326 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(17, 24, 39, 0.85);
-  backdrop-filter: blur(15px);
-  z-index: 2;
+  background: radial-gradient(circle at 20% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(0, 191, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .sb-projects-content {
   position: relative;
-  z-index: 3;
-  max-width: 1400px;
-  margin: 0 auto;
-  text-align: center;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .sb-projects-title {
-  font-family: "Orbitron", sans-serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  text-shadow: 0 0 35px rgba(16, 185, 129, 0.9);
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #00bfff 0%, #d946ef 50%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   position: relative;
-  margin-bottom: 3rem;
+  display: inline-block;
+  width: 100%;
 }
 
 .sb-projects-title-glow {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(16, 185, 129, 0.7) 0%,
-    transparent 70%
-  );
-  opacity: 0.3;
-  animation: sb-pulseGlow 4s ease-in-out infinite;
-}
-
-@media (max-width: 768px) {
-  .sb-projects-title {
-    font-size: 2.5rem;
-  }
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 191, 255, 0.3) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .sb-projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-@media (max-width: 1024px) {
-  .sb-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .sb-projects-grid {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
 .sb-projects-card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 191, 255, 0.2);
+  border-radius: 20px;
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .sb-projects-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 191, 255, 0.5);
   transform: translateY(-10px);
-  box-shadow: 0 0 40px rgba(16, 185, 129, 0.7);
+  box-shadow: 0 20px 50px rgba(0, 191, 255, 0.15);
 }
 
 .sb-projects-card-image {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
+  display: block;
 }
 
 .sb-projects-card-content {
-  padding: 1.5rem;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
 }
 
 .sb-projects-card-title {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  color: #00d4ff;
 }
 
 .sb-projects-card-description {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  color: #d1d5db;
-  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #b0b0b0;
+  line-height: 1.6;
+  flex: 1;
 }
 
 .sb-projects-card-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .sb-projects-card-tech-item {
-  font-family: "Inter", sans-serif;
-  font-size: 0.875rem;
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.2);
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
+  padding: 6px 12px;
+  background: rgba(0, 191, 255, 0.15);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #00ff88;
 }
 
 .sb-projects-card-actions {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .sb-projects-card-link,
 .sb-projects-card-button {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  padding: 0.5rem 1.5rem;
-  border-radius: 25px;
+  flex: 1;
+  min-width: 80px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #00bfff 0%, #d946ef 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   text-decoration: none;
-  color: #ffffff;
-  background: linear-gradient(90deg, #10b981, #3b82f6);
-  background-size: 200% 100%;
+  text-align: center;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
-}
-
-.sb-projects-card-button {
-  border: none;
-  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .sb-projects-card-link:hover,
 .sb-projects-card-button:hover {
-  background-position: 100% 0;
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.9);
-}
-
-.sb-projects-card-link:hover .sb-projects-link-ripple,
-.sb-projects-card-button:hover .sb-projects-button-ripple {
-  animation: sb-ripple 0.8s ease-out;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+  transform: scale(1.05);
 }
 
 .sb-projects-link-ripple,
 .sb-projects-button-ripple {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple 0.6s ease-out;
+  display: none;
+}
+
+.sb-projects-card-link:active .sb-projects-link-ripple,
+.sb-projects-card-button:active .sb-projects-button-ripple {
+  display: block;
+}
+
+@keyframes ripple {
+  to {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
 }
 
 .sb-projects-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(17, 24, 39, 0.9);
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  backdrop-filter: blur(4px);
 }
 
 .sb-projects-modal {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 2rem;
+  position: relative;
+  background: linear-gradient(135deg, rgba(31, 25, 50, 0.95) 0%, rgba(26, 14, 46, 0.95) 100%);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  border-radius: 20px;
+  padding: 40px;
   max-width: 600px;
   width: 90%;
-  position: relative;
-  box-shadow: 0 0 50px rgba(16, 185, 129, 0.7);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 191, 255, 0.2);
 }
 
 .sb-projects-modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-family: "Inter", sans-serif;
-  font-size: 1.5rem;
-  color: #ffffff;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(217, 70, 239, 0.2);
+  border: 1px solid rgba(217, 70, 239, 0.4);
+  color: #d946ef;
+  font-size: 28px;
   cursor: pointer;
-  transition: color 0.3s ease;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .sb-projects-modal-close:hover {
-  color: #10b981;
+  background: rgba(217, 70, 239, 0.4);
+  transform: rotate(90deg);
 }
 
 .sb-projects-modal-image {
   width: 100%;
-  height: 250px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 24px;
 }
 
 .sb-projects-modal-title {
-  font-family: "Orbitron", sans-serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  color: #00d4ff;
+  margin-bottom: 16px;
 }
 
 .sb-projects-modal-description {
-  font-family: "Inter", sans-serif;
-  font-size: 1.25rem;
-  color: #d1d5db;
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.8;
+  margin-bottom: 16px;
 }
 
 .sb-projects-modal-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 10px;
+  margin: 20px 0;
+  color: #a0a0a0;
+  font-size: 0.95rem;
+}
+
+.sb-projects-modal-tech strong {
+  color: #00d4ff;
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 .sb-projects-modal-tech-item {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.2);
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
+  padding: 8px 14px;
+  background: rgba(0, 191, 255, 0.15);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #00ff88;
 }
 
 .sb-projects-modal-details {
-  font-family: "Inter", sans-serif;
-  font-size: 1.25rem;
-  color: #d1d5db;
-  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  line-height: 1.8;
+  margin-bottom: 24px;
 }
 
 .sb-projects-modal-actions {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .sb-projects-modal-link {
-  font-family: "Inter", sans-serif;
-  font-size: 1.25rem;
-  padding: 0.75rem 2rem;
-  border-radius: 25px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #00bfff 0%, #d946ef 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
   text-decoration: none;
-  color: #ffffff;
-  background: linear-gradient(90deg, #10b981, #3b82f6);
-  background-size: 200% 100%;
+  text-align: center;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .sb-projects-modal-link:hover {
-  background-position: 100% 0;
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.9);
+  box-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
+  transform: translateY(-2px);
 }
 
-.sb-projects-modal-link:hover .sb-projects-link-ripple {
-  animation: sb-ripple 0.8s ease-out;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .sb-projects-modal {
-    padding: 1.5rem;
+    padding: 24px;
+    width: 95%;
   }
 
-  .sb-projects-modal-image {
-    height: 200px;
+  .sb-projects-card-actions {
+    flex-direction: column;
   }
 
-  .sb-projects-modal-title {
-    font-size: 1.75rem;
-  }
-
-  .sb-projects-modal-description,
-  .sb-projects-modal-details {
-    font-size: 1rem;
-  }
-
-  .sb-projects-modal-link {
-    font-size: 1rem;
-    padding: 0.5rem 1.5rem;
+  .sb-projects-card-link,
+  .sb-projects-card-button {
+    min-width: unset;
   }
 }

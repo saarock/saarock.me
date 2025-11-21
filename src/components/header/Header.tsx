@@ -83,7 +83,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`sb-header ${isScrolled ? "sb-header-scrolled" : ""}`}
+      className={`header sb-header ${isScrolled ? "sb-header-scrolled" : ""}`}
       ref={headerRef}
     >
       <div className="sb-header-overlay"></div>

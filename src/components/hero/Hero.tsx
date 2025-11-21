@@ -1,60 +1,61 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./Hero.css";
+"use client"
+
+import type React from "react"
+import { useEffect, useRef, useState } from "react"
+import "./hero.css"
 
 const Hero: React.FC = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const typedRef = useRef<HTMLSpanElement>(null);
-  const ctaPrimaryRef = useRef<HTMLAnchorElement>(null);
-  const ctaSecondaryRef = useRef<HTMLAnchorElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-  const socialRefs = useRef<HTMLAnchorElement[]>([]);
-  const particlesRef = useRef<HTMLDivElement>(null);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const heroRef = useRef<HTMLElement>(null)
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const subtitleRef = useRef<HTMLParagraphElement>(null)
+  const typedRef = useRef<HTMLSpanElement>(null)
+  const ctaPrimaryRef = useRef<HTMLAnchorElement>(null)
+  const ctaSecondaryRef = useRef<HTMLAnchorElement>(null)
+  const imageRef = useRef<HTMLDivElement>(null)
+  const bgRef = useRef<HTMLDivElement>(null)
+  const socialRefs = useRef<HTMLAnchorElement[]>([])
+  const particlesRef = useRef<HTMLDivElement>(null)
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
 
-  // Listen for the beforeinstallprompt event
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: any) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    };
+      e.preventDefault()
+      setDeferredPrompt(e)
+    }
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
-  }, []);
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
+    }
+  }, [])
 
-  // Split title into letters
-  const titleText = "Welcome to My Universe";
+  const titleText = "Welcome to My Universe"
   const titleLetters = titleText.split("").map((char, index) => (
     <span key={index} className="sb-hero-title-letter">
       {char === " " ? "\u00A0" : char}
     </span>
-  ));
+  ))
 
   const handleInstallClick = async (e: React.MouseEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!deferredPrompt) {
-      console.log('Install prompt not available yet');
-      return;
+      console.log("Install prompt not available yet")
+      return
     }
 
-    deferredPrompt.prompt();
+    deferredPrompt.prompt()
 
-    const choiceResult = await deferredPrompt.userChoice;
-    if (choiceResult.outcome === 'accepted') {
-      console.log('User accepted the install prompt');
+    const choiceResult = await deferredPrompt.userChoice
+    if (choiceResult.outcome === "accepted") {
+      console.log("User accepted the install prompt")
     } else {
-      console.log('User dismissed the install prompt');
+      console.log("User dismissed the install prompt")
     }
 
-    setDeferredPrompt(null); // reset after prompting
-  };
+    setDeferredPrompt(null)
+  }
 
   return (
     <section className="sb-hero" ref={heroRef}>
@@ -72,7 +73,10 @@ const Hero: React.FC = () => {
           <span className="sb-hero-title-glow"></span>
         </h1>
         <p className="sb-hero-subtitle" ref={subtitleRef}>
-          I'm a <span className="sb-hero-typed" ref={typedRef}>Software Engineer.</span>
+          I'm a{" "}
+          <span className="sb-hero-typed" ref={typedRef}>
+            Software Engineer.
+          </span>
         </p>
         <div className="sb-hero-cta-container">
           <a
@@ -84,11 +88,7 @@ const Hero: React.FC = () => {
             Download App
             <span className="sb-hero-cta-ripple"></span>
           </a>
-          <a
-            href="#contact"
-            className="sb-hero-cta sb-hero-cta-secondary"
-            ref={ctaSecondaryRef}
-          >
+          <a href="mailto:saarock4646@gmail.com" className="sb-hero-cta sb-hero-cta-secondary" ref={ctaSecondaryRef}>
             Get in Touch
             <span className="sb-hero-cta-ripple"></span>
           </a>
@@ -106,11 +106,11 @@ const Hero: React.FC = () => {
           {[
             {
               name: "github",
-              path: "saarock"
+              path: "saarock",
             },
             {
               name: "linkedin",
-              path: "in/aayush-basnet-885ab9267"
+              path: "in/aayush-basnet-885ab9267",
             },
             {
               name: "twitter",
@@ -118,28 +118,26 @@ const Hero: React.FC = () => {
             },
             {
               name: "instagram",
-              path: "saarock_basnet"
-            }
+              path: "iamsaarock",
+            },
           ].map((platform, index) => (
             <a
               key={platform.name}
               href={`https://${platform.name}.com/${platform.path}`}
               className="sb-hero-social"
               ref={(el) => {
-                if (el) socialRefs.current[index] = el;
+                if (el) socialRefs.current[index] = el
               }}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span
-                className={`sb-hero-social-icon sb-hero-social-${platform.name}`}
-              ></span>
+              <span className={`sb-hero-social-icon sb-hero-social-${platform.name}`}></span>
             </a>
           ))}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

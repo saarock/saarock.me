@@ -1,0 +1,153 @@
+/* Contact.css */
+.sb-contact {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c1c 0%, #1a0e2e 50%, #16213e 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.sb-contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(0, 191, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.sb-contact-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.sb-contact-title {
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #00bfff 0%, #d946ef 50%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.sb-contact-subtitle {
+  font-size: 1.25rem;
+  color: #ddd;
+  margin-bottom: 40px;
+}
+
+.sb-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sb-contact-form input,
+.sb-contact-form textarea {
+  padding: 15px;
+  border: 1px solid rgba(0, 191, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.sb-contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.sb-contact-form input:focus,
+.sb-contact-form textarea:focus {
+  outline: none;
+  border-color: rgba(0, 191, 255, 0.7);
+}
+
+.sb-contact-form button {
+  padding: 15px;
+  background: linear-gradient(135deg, #00bfff 0%, #d946ef 100%);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sb-contact-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+}
+
+/* Modal/Overlay Effect (Optional for confirmation) */
+.sb-contact-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.sb-contact-modal {
+  background: linear-gradient(135deg, rgba(31, 25, 50, 0.95) 0%, rgba(26, 14, 46, 0.95) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.sb-contact-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(217, 70, 239, 0.2);
+  color: #d946ef;
+  font-size: 28px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px;
+  transition: all 0.3s ease;
+}
+
+.sb-contact-modal-close:hover {
+  background: rgba(217, 70, 239, 0.4);
+  transform: rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sb-contact-form {
+    width: 90%;
+  }
+
+  .sb-contact-title {
+    font-size: 3rem;
+  }
+
+  .sb-contact-subtitle {
+    font-size: 1rem;
+  }
+}

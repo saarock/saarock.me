@@ -41,19 +41,19 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <NotFoundPage />
+        element: <NotFoundPage />,
       },
       {
         path: "/blogs/:blogId",
-        element: <ReadBlog />
-      }
+        element: <ReadBlog />,
+      },
     ],
   },
 ]);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </Provider>
-  </StrictMode>,
+  </StrictMode>
 );
