@@ -1,7 +1,7 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import "./project.css";
+import "./Project.css";
 
 interface Project {
   id: number;
