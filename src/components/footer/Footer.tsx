@@ -1,10 +1,9 @@
-"use client"
 
 import type React from "react"
 
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
-import "./footer.css"
+import "./Footer.css"
 
 interface SocialRef {
   current: HTMLAnchorElement[]
